@@ -521,7 +521,7 @@ class DateTime(Column):
     This allows equality comparison between assigned values and values read back from the database::
 
         DateTime.truncate_microseconds = True
-        assert Model.create(id=0, d=datetime.utcnow()) == Model.objects(id=0).first()
+        assert Model.create(id=0, d=datetime.utcnow()) == Model.objects(id=0).one()
 
     Defaults to ``False`` to preserve legacy behavior. May change in the future.
     """
