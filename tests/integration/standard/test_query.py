@@ -455,7 +455,7 @@ class PreparedStatementMetdataTest(unittest.TestCase):
             if base_line is None:
                 base_line = results.one()._asdict().keys()
             else:
-                self.assertEqual(base_line, results[0]._asdict().keys())
+                self.assertEqual(base_line, results.one()._asdict().keys())
             cluster.shutdown()
 
 

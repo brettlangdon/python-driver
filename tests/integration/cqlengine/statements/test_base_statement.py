@@ -135,7 +135,7 @@ class ExecuteStatementTest(BaseCassEngTestCase):
                          'SELECT * FROM {} WHERE "text" LIKE %(0)s'.format(self.table_name))
 
         result = execute(ss)
-        self.assertEqual(result.first()["text"], self.text)
+        self.assertEqual(result.one()["text"], self.text)
 
         q = TestQueryUpdateModel.objects.filter(text__like=like_clause).allow_filtering()
         self.assertEqual(q[0].text, self.text)
